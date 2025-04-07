@@ -1,4 +1,3 @@
-// script.js
 const riddles = [
   { question: "What has keys but can't open locks?", answer: "piano" },
   { question: "I speak without a mouth and hear without ears. I have nobody, but I come alive with wind. What am I?", answer: "echo" },
@@ -11,11 +10,21 @@ function checkAnswer() {
   const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
   const correctAnswer = riddles[currentRiddle].answer.toLowerCase();
 
+  const feedback = document.getElementById('feedback');
+  const emoji = document.getElementById('emoji');
+  
+  // Check if the answer is correct
   if (userAnswer === correctAnswer) {
-    document.getElementById("feedback").textContent = "Correct! Well done!";
+    feedback.textContent = "Correct! Well done!";
+    emoji.textContent = "😊";  // Smiley face for correct answer
+    feedback.classList.remove("incorrect");
+    feedback.classList.add("correct");
     document.getElementById("next-riddle").style.display = "inline-block";
   } else {
-    document.getElementById("feedback").textContent = "Oops, try again!";
+    feedback.textContent = "Oops, try again!";
+    emoji.textContent = "😞";  // Sad face for incorrect answer
+    feedback.classList.remove("correct");
+    feedback.classList.add("incorrect");
   }
 }
 
@@ -25,49 +34,10 @@ function nextRiddle() {
     document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
     document.getElementById("answer-input").value = "";
     document.getElementById("feedback").textContent = "";
+    document.getElementById("emoji").textContent = "";  // Clear the emoji
     document.getElementById("next-riddle").style.display = "none";
   } else {
     document.getElementById("riddle-text").textContent = "Congrats, you've solved all the riddles!";
     document.getElementById("next-riddle").style.display = "none";
   }
 }
-
-// This function is called when the player answers a riddle
-function checkAnswer(userAnswer, correctAnswer) {
-  const feedback = document.getElementById('feedback');
-  const emoji = document.getElementById('emoji');
-  
-  // Check if the answer is correct
-  if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
-    feedback.textContent = "Correct!";
-    emoji.textContent = "😊";  // Smiley face for correct answer
-    feedback.classList.remove("incorrect");
-    feedback.classList.add("correct");
-  } else {
-    feedback.textContent = "Incorrect!";
-    emoji.textContent = "😞";  // Sad face for incorrect answer
-    feedback.classList.remove("correct");
-    feedback.classList.add("incorrect");
-  }
-}
-
-// Function to check answer and display feedback
-function checkAnswer(userAnswer, correctAnswer) {
-  const feedback = document.getElementById('feedback');
-  const emoji = document.getElementById('emoji');
-  
-  // Check if the answer is correct
-  if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
-    feedback.textContent = "Correct!";
-    emoji.textContent = "😊";  // Smiley face for correct answer
-    feedback.classList.remove("incorrect");
-    feedback.classList.add("correct");
-  } else {
-    feedback.textContent = "Incorrect!";
-    emoji.textContent = "😞";  // Sad face for incorrect answer
-    feedback.classList.remove("correct");
-    feedback.classList.add("incorrect");
-  }
-}
-
-
