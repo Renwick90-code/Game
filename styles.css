@@ -107,3 +107,15 @@ button#next-riddle {
 button#next-riddle:hover {
   background-color: #1976D2; /* Darker blue on hover */
 }
+/* Styling the image */
+.welcome-image {
+  width: 100%; /* Makes the image responsive and fit to the width of its container */
+  max-width: 400px; /* Limit the max width to avoid it being too large */
+  height: auto; /* Keeps the image aspect ratio */
+  margin-bottom: 20px; /* Adds some space below the image */
+  border-radius: 8px; /* Optional: rounds the corners of the image */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
