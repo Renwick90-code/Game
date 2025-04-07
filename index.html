@@ -3,24 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Riddle Game</title>
+  <title>Welcome to the Riddle Game</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="game-container">
-    <h1>Riddle Game</h1>
-    <div id="riddle-container">
-      <p id="riddle-text">What has keys but can't open locks?</p>
-    </div>
-    
-    <input type="text" id="answer-input" placeholder="Type your answer...">
-    <button onclick="checkAnswer()">Submit Answer</button>
-
-    <p id="feedback"></p>
-
-    <button id="next-riddle" onclick="nextRiddle()">Next Riddle</button>
+    <h1>Welcome to the Riddle Game!</h1>
+    <p>Can you solve all the riddles? Click the button below to start.</p>
+    <button onclick="location.href='riddle1.html'">Start Game</button>
+    <br>
+    <br>
+    <a href="about.html">About the Game</a>
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
