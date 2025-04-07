@@ -119,3 +119,8 @@ button#next-riddle:hover {
   margin-right: auto;
 }
 
+#emoji {
+  font-size: 40px; /* Increase size of the emoji */
+  margin-left: 10px; /* Adds space between text and emoji */
+  display: inline-block;
+}
