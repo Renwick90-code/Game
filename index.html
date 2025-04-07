@@ -3,99 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Riddle Game</title>
+  <title>Welcome to the Riddle Game</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .welcome-image {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      margin-bottom: 20px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    #emoji {
-      font-size: 30px;
-      margin-left: 10px;
-    }
-
-    .correct {
-      color: green;
-    }
-
-    .incorrect {
-      color: red;
-    }
-  </style>
 </head>
 <body>
   <div class="game-container">
-    <!-- Add this at the beginning of the body or wherever you'd like the image -->
     <img src="riddler_2_art_station.jpg" alt="Welcome Riddle Image" class="welcome-image">
     <h1>Welcome to the Riddle Game!</h1>
-    <div id="riddle-text"></div>
-    <input type="text" id="answer-input" placeholder="Enter your answer">
-    <button onclick="checkAnswer()">Submit Answer</button>
-
-    <div id="feedback-container">
-      <span id="feedback"></span>
-      <span id="emoji"></span> <!-- Emoji (😊 or 😞) -->
-    </div>
-
-    <button id="next-riddle" onclick="nextRiddle()" style="display: none;">Next Riddle</button>
+    <p>Ready to challenge your mind with some fun riddles?</p>
+    <a href="riddle1.html"><button>Start the Game</button></a> <!-- Link to the first riddle page -->
   </div>
-
-  <script>
-    const riddles = [
-      { question: "What has keys but can't open locks?", answer: "piano" },
-      { question: "I speak without a mouth and hear without ears. I have nobody, but I come alive with wind. What am I?", answer: "echo" },
-      { question: "The more of this there is, the less you see. What is it?", answer: "darkness" },
-    ];
-
-    let currentRiddle = 0;
-
-    function checkAnswer() {
-      const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
-      const correctAnswer = riddles[currentRiddle].answer.toLowerCase();
-
-      const feedback = document.getElementById('feedback');
-      const emoji = document.getElementById('emoji');
-      
-      // Check if the answer is correct
-      if (userAnswer === correctAnswer) {
-        feedback.textContent = "Correct! Well done!";
-        emoji.textContent = "😊";  // Smiley face for correct answer
-        feedback.classList.remove("incorrect");
-        feedback.classList.add("correct");
-        document.getElementById("next-riddle").style.display = "inline-block";
-      } else {
-        feedback.textContent = "Oops, try again!";
-        emoji.textContent = "😞";  // Sad face for incorrect answer
-        feedback.classList.remove("correct");
-        feedback.classList.add("incorrect");
-      }
-    }
-
-    function nextRiddle() {
-      currentRiddle++;
-      if (currentRiddle < riddles.length) {
-        document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
-        document.getElementById("answer-input").value = "";
-        document.getElementById("feedback").textContent = "";
-        document.getElementById("emoji").textContent = "";  // Clear the emoji
-        document.getElementById("next-riddle").style.display = "none";
-      } else {
-        document.getElementById("riddle-text").textContent = "Congrats, you've solved all the riddles!";
-        document.getElementById("next-riddle").style.display = "none";
-      }
-    }
-
-    // Display the first riddle when the page loads
-    window.onload = function() {
-      document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
-    };
-  </script>
 </body>
 </html>
