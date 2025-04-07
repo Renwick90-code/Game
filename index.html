@@ -3,25 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Web Page</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+  <title>Riddle Game</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Welcome to My Web Page!</h1>
-  </header>
+  <div class="game-container">
+    <h1>Riddle Game</h1>
+    <div id="riddle-container">
+      <p id="riddle-text">What has keys but can't open locks?</p>
+    </div>
+    
+    <input type="text" id="answer-input" placeholder="Type your answer...">
+    <button onclick="checkAnswer()">Submit Answer</button>
 
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <p>This is a paragraph about me!</p>
-    </section>
-  </main>
+    <p id="feedback"></p>
 
-  <footer>
-    <p>Created with love on GitHub Pages</p>
-  </footer>
+    <button id="next-riddle" onclick="nextRiddle()">Next Riddle</button>
+  </div>
 
-  <script src="script.js"></script> <!-- Link to your JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
