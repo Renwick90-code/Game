@@ -1,4 +1,4 @@
-// Riddles array
+// Array of riddles
 const riddles = [
   { question: "What has keys but can't open locks?", answer: "piano" },
   { question: "I speak without a mouth and hear without ears. I have nobody, but I come alive with wind. What am I?", answer: "echo" },
@@ -21,6 +21,9 @@ function checkAnswer() {
     feedback.classList.remove("incorrect");
     feedback.classList.add("correct");
     document.getElementById("next-riddle").style.display = "inline-block";
+    
+    // After answering correctly, move to the next riddle or Thank You page
+    nextRiddle();
   } else {
     feedback.textContent = "Oops, try again!";
     emoji.textContent = "😞";  // Sad face for incorrect answer
@@ -29,7 +32,7 @@ function checkAnswer() {
   }
 }
 
-// Function for navigating to next riddle or final page
+// Function to navigate to the next riddle or to the Thank You page
 function nextRiddle() {
   currentRiddle++;
   if (currentRiddle === 1) {
@@ -41,7 +44,7 @@ function nextRiddle() {
   }
 }
 
-// Initialize first riddle when page loads
+// Initialize the first riddle
 window.onload = function() {
   document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
 };
