@@ -134,3 +134,19 @@ button#next-riddle:hover {
   color: #f44336; /* Red for incorrect */
 }
 
+/* Styling the emoji */
+#emoji {
+  font-size: 40px; /* Size of the emoji */
+  margin-left: 10px;
+  display: inline-block;
+}
+
+/* Feedback styling */
+#feedback.correct {
+  color: #4CAF50; /* Green for correct */
+}
+
+#feedback.incorrect {
+  color: #f44336; /* Red for incorrect */
+}
+
