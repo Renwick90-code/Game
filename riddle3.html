@@ -9,34 +9,16 @@
 <body>
   <div class="game-container">
     <h1>Riddle 3</h1>
-    <div id="riddle-container">
-      <p>The more of this there is, the less you see. What is it?</p>
-    </div>
-
-    <input type="text" id="answer-input" placeholder="Type your answer...">
+    <div id="riddle-text">The more of this there is, the less you see. What is it?</div>
+    <input type="text" id="answer-input" placeholder="Enter your answer">
     <button onclick="checkAnswer()">Submit Answer</button>
-    <p id="feedback"></p>
-
-    <button id="next-riddle" onclick="nextRiddle()" style="display:none;">Next Riddle</button>
-    <br><br>
-    <a href="index.html">Go Back to Home</a>
+    <div id="feedback-container">
+      <span id="feedback"></span>
+      <span id="emoji"></span>
+    </div>
+    <button id="next-riddle" onclick="nextRiddle()" style="display: none;">Next Riddle</button>
   </div>
 
-  <script>
-    const correctAnswer = "darkness";
-    function checkAnswer() {
-      const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
-      if (userAnswer === correctAnswer) {
-        document.getElementById("feedback").textContent = "Correct! Well done!";
-        document.getElementById("next-riddle").style.display = "inline-block";  // Show the next button
-      } else {
-        document.getElementById("feedback").textContent = "Oops, try again!";
-      }
-    }
-
-    function nextRiddle() {
-      location.href = 'thankyou.html';  // Go to the thank you page after the last riddle
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
