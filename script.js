@@ -51,3 +51,23 @@ function checkAnswer(userAnswer, correctAnswer) {
   }
 }
 
+// Function to check answer and display feedback
+function checkAnswer(userAnswer, correctAnswer) {
+  const feedback = document.getElementById('feedback');
+  const emoji = document.getElementById('emoji');
+  
+  // Check if the answer is correct
+  if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+    feedback.textContent = "Correct!";
+    emoji.textContent = "😊";  // Smiley face for correct answer
+    feedback.classList.remove("incorrect");
+    feedback.classList.add("correct");
+  } else {
+    feedback.textContent = "Incorrect!";
+    emoji.textContent = "😞";  // Sad face for incorrect answer
+    feedback.classList.remove("correct");
+    feedback.classList.add("incorrect");
+  }
+}
+
+
