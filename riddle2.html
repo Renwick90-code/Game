@@ -17,7 +17,7 @@
     <button onclick="checkAnswer()">Submit Answer</button>
     <p id="feedback"></p>
 
-    <button id="next-riddle" onclick="nextRiddle()">Next Riddle</button>
+    <button id="next-riddle" onclick="nextRiddle()" style="display:none;">Next Riddle</button>
     <br><br>
     <a href="index.html">Go Back to Home</a>
   </div>
@@ -28,14 +28,14 @@
       const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
       if (userAnswer === correctAnswer) {
         document.getElementById("feedback").textContent = "Correct! Well done!";
-        document.getElementById("next-riddle").style.display = "inline-block";
+        document.getElementById("next-riddle").style.display = "inline-block";  // Show the next button
       } else {
         document.getElementById("feedback").textContent = "Oops, try again!";
       }
     }
 
     function nextRiddle() {
-      location.href = 'riddle3.html';  // Move to next riddle page
+      location.href = 'riddle3.html';  // Move to the next riddle
     }
   </script>
 </body>
