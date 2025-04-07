@@ -9,12 +9,12 @@
 <body>
   <div class="game-container">
     <h1>Welcome to the Riddle Game!</h1>
-    <p>Can you solve all the riddles? Click the button below to start.</p>
-    <button onclick="location.href='riddle1.html'">Start Game</button>
+    <input type="text" id="user-input" placeholder="Your answer">
+    <button onclick="checkAnswer(document.getElementById('user-input').value, 'the correct answer')">Submit Answer</button>
     
     <div id="feedback-container">
-      <span id="feedback"></span>
-      <span id="emoji"></span> <!-- Placeholder for emoji -->
+      <span id="feedback"></span> <!-- Feedback message like "Correct!" or "Incorrect!" -->
+      <span id="emoji"></span> <!-- Emoji (😊 or 😞) -->
     </div>
   </div>
 
