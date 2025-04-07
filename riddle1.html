@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riddle 1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-container">
+    <h1>Riddle 1</h1>
+    <div id="riddle-container">
+      <p>What has keys but can't open locks?</p>
+    </div>
+
+    <input type="text" id="answer-input" placeholder="Type your answer...">
+    <button onclick="checkAnswer()">Submit Answer</button>
+    <p id="feedback"></p>
+
+    <button id="next-riddle" onclick="nextRiddle()">Next Riddle</button>
+    <br>
+    <br>
+    <a href="index.html">Go Back to Home</a>
+  </div>
+
+  <script>
+    let correctAnswer = "piano";
+    function checkAnswer() {
+      const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
+      if (userAnswer === correctAnswer) {
+        document.getElementById("feedback").textContent = "Correct! Well done!";
+        document.getElementById("next-riddle").style.display = "inline-block";
+      } else {
+        document.getElementById("feedback").textContent = "Oops, try again!";
+      }
+    }
+
+    function nextRiddle() {
+      location.href = 'riddle2.html';  // Move to next riddle page
+    }
+  </script>
+</body>
+</html>
