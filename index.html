@@ -5,19 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Riddle Game</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .welcome-image {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      margin-bottom: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #emoji {
+      font-size: 30px;
+      margin-left: 10px;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .incorrect {
+      color: red;
+    }
+  </style>
 </head>
 <body>
   <div class="game-container">
     <!-- Add this at the beginning of the body or wherever you'd like the image -->
-<img src="riddler_2_art_station.jpg" alt="Welcome Riddle Image" class="welcome-image">
+    <img src="riddler_2_art_station.jpg" alt="Welcome Riddle Image" class="welcome-image">
     <h1>Welcome to the Riddle Game!</h1>
     <div id="riddle-text"></div>
     <input type="text" id="answer-input" placeholder="Enter your answer">
     <button onclick="checkAnswer()">Submit Answer</button>
+
     <div id="feedback-container">
       <span id="feedback"></span>
       <span id="emoji"></span> <!-- Emoji (😊 or 😞) -->
     </div>
+
     <button id="next-riddle" onclick="nextRiddle()" style="display: none;">Next Riddle</button>
   </div>
 
