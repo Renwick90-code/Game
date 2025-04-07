@@ -18,13 +18,12 @@
     <p id="feedback"></p>
 
     <button id="next-riddle" onclick="nextRiddle()">Next Riddle</button>
-    <br>
-    <br>
+    <br><br>
     <a href="index.html">Go Back to Home</a>
   </div>
 
   <script>
-    let correctAnswer = "piano";
+    const correctAnswer = "piano";
     function checkAnswer() {
       const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
       if (userAnswer === correctAnswer) {
