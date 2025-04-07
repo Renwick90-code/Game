@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Riddle 1</title>
+  <title>Riddle 2</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="game-container">
-    <h1>Riddle 1</h1>
+    <h1>Riddle 2</h1>
     <div id="riddle-container">
-      <p>What has keys but can't open locks?</p>
+      <p>I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?</p>
     </div>
 
     <input type="text" id="answer-input" placeholder="Type your answer...">
@@ -18,13 +18,12 @@
     <p id="feedback"></p>
 
     <button id="next-riddle" onclick="nextRiddle()">Next Riddle</button>
-    <br>
-    <br>
+    <br><br>
     <a href="index.html">Go Back to Home</a>
   </div>
 
   <script>
-    let correctAnswer = "piano";
+    const correctAnswer = "echo";
     function checkAnswer() {
       const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
       if (userAnswer === correctAnswer) {
@@ -36,7 +35,7 @@
     }
 
     function nextRiddle() {
-      location.href = 'riddle2.html';  // Move to next riddle page
+      location.href = 'riddle3.html';  // Move to next riddle page
     }
   </script>
 </body>
