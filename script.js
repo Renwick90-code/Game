@@ -31,26 +31,19 @@ function checkAnswer() {
 function nextRiddle() {
   currentRiddle++;
   if (currentRiddle < riddles.length) {
+    // Show the next riddle
     document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
-    document.getElementById("answer-input").value = "";
-    document.getElementById("feedback").textContent = "";
-    document.getElementById("emoji").textContent = "";  // Clear the emoji
-    document.getElementById("next-riddle").style.display = "none";
+    document.getElementById("answer-input").value = "";  // Clear the answer field
+    document.getElementById("feedback").textContent = ""; // Clear feedback
+    document.getElementById("emoji").textContent = ""; // Clear emoji
+    document.getElementById("next-riddle").style.display = "none"; // Hide next riddle button until answer is checked
   } else {
-    document.getElementById("riddle-text").textContent = "Congrats, you've solved all the riddles!";
-    document.getElementById("next-riddle").style.display = "none";
+    // If all riddles are answered, go to the Thank You page
+    window.location.href = "thankyou.html";
   }
 }
 
-function nextRiddle() {
-  currentRiddle++;
-  if (currentRiddle === 1) {
-    window.location.href = "riddle2.html"; // Go to the second riddle
-  } else if (currentRiddle === 2) {
-    window.location.href = "riddle3.html"; // Go to the third riddle
-  } else {
-    window.location.href = "thankyou.html"; // Go to the thank you page
-  }
-}
-
-
+// Display the first riddle when the page loads
+window.onload = function() {
+  document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
+};
