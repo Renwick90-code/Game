@@ -41,3 +41,16 @@ function nextRiddle() {
     document.getElementById("next-riddle").style.display = "none";
   }
 }
+
+function nextRiddle() {
+  currentRiddle++;
+  if (currentRiddle === 1) {
+    window.location.href = "riddle2.html"; // Go to the second riddle
+  } else if (currentRiddle === 2) {
+    window.location.href = "riddle3.html"; // Go to the third riddle
+  } else {
+    window.location.href = "thankyou.html"; // Go to the thank you page
+  }
+}
+
+
