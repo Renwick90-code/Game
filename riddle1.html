@@ -9,34 +9,17 @@
 <body>
   <div class="game-container">
     <h1>Riddle 1</h1>
-    <div id="riddle-container">
-      <p>What has keys but can't open locks?</p>
-    </div>
-
-    <input type="text" id="answer-input" placeholder="Type your answer...">
+    <div id="riddle-text">What has keys but can't open locks?</div>
+    <input type="text" id="answer-input" placeholder="Enter your answer">
     <button onclick="checkAnswer()">Submit Answer</button>
-    <p id="feedback"></p>
-
-    <button id="next-riddle" onclick="nextRiddle()" style="display:none;">Next Riddle</button>
-    <br><br>
-    <a href="index.html">Go Back to Home</a>
+    <div id="feedback-container">
+      <span id="feedback"></span>
+      <span id="emoji"></span>
+    </div>
+    <button id="next-riddle" onclick="nextRiddle()" style="display: none;">Next Riddle</button>
+    <a href="about.html"><button>About the Game</button></a> <!-- Link to the About page -->
   </div>
 
-  <script>
-    const correctAnswer = "piano";
-    function checkAnswer() {
-      const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
-      if (userAnswer === correctAnswer) {
-        document.getElementById("feedback").textContent = "Correct! Well done!";
-        document.getElementById("next-riddle").style.display = "inline-block";  // Show the next button
-      } else {
-        document.getElementById("feedback").textContent = "Oops, try again!";
-      }
-    }
-
-    function nextRiddle() {
-      location.href = 'riddle2.html';  // Move to the next riddle
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
