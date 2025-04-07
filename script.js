@@ -4,8 +4,9 @@ const riddles = [
   { question: "The more of this there is, the less you see. What is it?", answer: "darkness" },
 ];
 
-let currentRiddle = 0;
+let currentRiddle = 0; // Start with the first riddle
 
+// Function to check the user's answer
 function checkAnswer() {
   const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
   const correctAnswer = riddles[currentRiddle].answer.toLowerCase();
@@ -19,13 +20,15 @@ function checkAnswer() {
     emoji.textContent = "😊";  // Smiley face for correct answer
     feedback.classList.remove("incorrect");
     feedback.classList.add("correct");
-    document.getElementById("next-riddle").style.display = "inline-block";
 
-    // If the third riddle is answered correctly, go to the Thank You page
+    // If it's Riddle 3, redirect to Thank You page immediately
     if (currentRiddle === 2) {
       setTimeout(function() {
-        window.location.href = "thankyou.html"; // Redirect to Thank You page
-      }, 1000); // Redirect after 1 second for a smoother transition
+        window.location.href = "thankyou.html"; // Redirect to Thank You page after 1 second
+      }, 1000); // Delay for 1 second for a smoother transition
+    } else {
+      // For other riddles, show the "Next Riddle" button
+      document.getElementById("next-riddle").style.display = "inline-block";
     }
   } else {
     feedback.textContent = "Oops, try again!";
@@ -35,6 +38,7 @@ function checkAnswer() {
   }
 }
 
+// Function to load the next riddle
 function nextRiddle() {
   currentRiddle++;
   if (currentRiddle < riddles.length) {
