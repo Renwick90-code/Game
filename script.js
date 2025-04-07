@@ -20,6 +20,13 @@ function checkAnswer() {
     feedback.classList.remove("incorrect");
     feedback.classList.add("correct");
     document.getElementById("next-riddle").style.display = "inline-block";
+
+    // If the third riddle is answered correctly, go to the Thank You page
+    if (currentRiddle === 2) {
+      setTimeout(function() {
+        window.location.href = "thankyou.html"; // Redirect to Thank You page
+      }, 1000); // Redirect after 1 second for a smoother transition
+    }
   } else {
     feedback.textContent = "Oops, try again!";
     emoji.textContent = "😞";  // Sad face for incorrect answer
@@ -31,15 +38,14 @@ function checkAnswer() {
 function nextRiddle() {
   currentRiddle++;
   if (currentRiddle < riddles.length) {
-    // Show the next riddle
     document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
-    document.getElementById("answer-input").value = "";  // Clear the answer field
-    document.getElementById("feedback").textContent = ""; // Clear feedback
-    document.getElementById("emoji").textContent = ""; // Clear emoji
-    document.getElementById("next-riddle").style.display = "none"; // Hide next riddle button until answer is checked
+    document.getElementById("answer-input").value = "";
+    document.getElementById("feedback").textContent = "";
+    document.getElementById("emoji").textContent = "";  // Clear the emoji
+    document.getElementById("next-riddle").style.display = "none";
   } else {
-    // If all riddles are answered, go to the Thank You page
-    window.location.href = "thankyou.html";
+    document.getElementById("riddle-text").textContent = "Congrats, you've solved all the riddles!";
+    document.getElementById("next-riddle").style.display = "none";
   }
 }
 
