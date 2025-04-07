@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to the Riddle Game</title>
+  <title>Riddle Game</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="game-container">
-    <!-- Add the image -->
-    <img src="riddler_2_art_station.jpg" alt="Riddler Art" class="welcome-image">
-
     <h1>Welcome to the Riddle Game!</h1>
     <p>Can you solve all the riddles? Click the button below to start.</p>
     <button onclick="location.href='riddle1.html'">Start Game</button>
-    <br><br>
-    <a href="about.html">About the Game</a>
+    
+    <div id="feedback-container">
+      <span id="feedback"></span>
+      <span id="emoji"></span> <!-- Placeholder for emoji -->
+    </div>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
