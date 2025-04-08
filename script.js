@@ -9,10 +9,15 @@ let currentRiddle = parseInt(localStorage.getItem("currentRiddle")) || 0;
 
 // Function to load the current riddle
 function loadRiddle() {
-  document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
-  
-  // Dynamically set the heading based on the current riddle
-  document.querySelector("h1").textContent = "Riddle " + (currentRiddle + 1);  // Adjusting for 1-based index (Riddle 1, Riddle 2, etc.)
+  // Check if we're still within the bounds of the riddles array
+  if (currentRiddle < riddles.length) {
+    document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
+    // Dynamically set the heading based on the current riddle
+    document.querySelector("h1").textContent = "Riddle " + (currentRiddle + 1);  // Adjusting for 1-based index (Riddle 1, Riddle 2, etc.)
+  } else {
+    // Once all riddles are done, redirect to the Thank You page
+    window.location.href = "thankyou.html";  // Go to Thank You page
+  }
 }
 
 // Function to check the answer
@@ -52,6 +57,7 @@ function nextRiddle() {
     window.location.reload();
   } else {
     // If all riddles are completed, go to the Thank You page
+    localStorage.removeItem("currentRiddle"); // Optional: Clear the stored riddle number
     window.location.href = "thankyou.html"; // Go to the Thank You page after all riddles are completed
   }
 }
