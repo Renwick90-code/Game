@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Riddle 3</title>
+  <title>Riddle Game</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="game-container">
-    <h1>Riddle 3</h1>
-    <div id="riddle-text">The more of this there is, the less you see. What is it?</div>
+    <h1>Riddle Game</h1>
+    <div id="riddle-text"></div>
     <input type="text" id="answer-input" placeholder="Enter your answer">
     <button onclick="checkAnswer()">Submit Answer</button>
     <div id="feedback-container">
       <span id="feedback"></span>
       <span id="emoji"></span>
     </div>
-    <!-- Change the Next Riddle button to Finish -->
+    <button id="next-riddle" onclick="nextRiddle()" style="display: none;">Next Riddle</button>
     <button id="finish-game" onclick="finishGame()" style="display: none;">Finish Game</button>
   </div>
 
