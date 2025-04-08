@@ -81,7 +81,3 @@ function finishGame() {
 window.onload = function() {
   loadRiddle();
 };
-
-console.log("Current Riddle:", currentRiddle);
-console.log("Question:", riddles[currentRiddle].question);
-
