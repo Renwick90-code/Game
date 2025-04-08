@@ -53,8 +53,8 @@ function nextRiddle() {
   if (currentRiddle < riddles.length) {
     // Save the current riddle to localStorage to keep track of progress
     localStorage.setItem("currentRiddle", currentRiddle);
-    // Reload the page to reflect the next riddle
-    window.location.reload();
+    // Go to the next riddle page
+    window.location.href = `riddle${currentRiddle + 1}.html`;  // For example: riddle2.html, riddle3.html
   } else {
     // If all riddles are completed, go to the Thank You page
     localStorage.removeItem("currentRiddle"); // Optional: Clear the stored riddle number
