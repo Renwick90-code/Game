@@ -15,8 +15,9 @@ function loadRiddle() {
     // Dynamically set the heading based on the current riddle
     document.querySelector("h1").textContent = "Riddle " + (currentRiddle + 1);  // Adjusting for 1-based index (Riddle 1, Riddle 2, etc.)
   } else {
-    // Once all riddles are done, redirect to the Thank You page
-    window.location.href = "thankyou.html";  // Go to Thank You page
+    // If no more riddles, redirect to the Thank You page
+    localStorage.removeItem("currentRiddle"); // Clear the saved riddle
+    window.location.href = "thankyou.html"; // Go to Thank You page
   }
 }
 
@@ -52,13 +53,12 @@ function nextRiddle() {
   if (currentRiddle < riddles.length) {
     // Save the current riddle to localStorage to keep track of progress
     localStorage.setItem("currentRiddle", currentRiddle);
-    
     // Reload the page to reflect the next riddle
     window.location.reload();
   } else {
     // If all riddles are completed, go to the Thank You page
     localStorage.removeItem("currentRiddle"); // Optional: Clear the stored riddle number
-    window.location.href = "thankyou.html"; // Go to the Thank You page after all riddles are completed
+    window.location.href = "thankyou.html"; // Go to Thank You page
   }
 }
 
