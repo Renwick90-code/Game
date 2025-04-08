@@ -5,9 +5,14 @@ const riddles = [
   { question: "The more of this there is, the less you see. What is it?", answer: "darkness" },
 ];
 
-let currentRiddle = 0;
+let currentRiddle = parseInt(localStorage.getItem("currentRiddle")) || 0;
 
-// Check answer function
+// Function to load the current riddle
+function loadRiddle() {
+  document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
+}
+
+// Function to check the answer
 function checkAnswer() {
   const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
   const correctAnswer = riddles[currentRiddle].answer.toLowerCase();
@@ -20,7 +25,7 @@ function checkAnswer() {
     emoji.textContent = "😊";  // Smiley face for correct answer
     feedback.classList.remove("incorrect");
     feedback.classList.add("correct");
-    document.getElementById("next-riddle").style.display = "inline-block"; // Show next riddle button
+    document.getElementById("next-riddle").style.display = "inline-block";
     
     // Optionally: Disable the input and submit button after answering
     document.getElementById("answer-input").disabled = true;
@@ -33,31 +38,22 @@ function checkAnswer() {
   }
 }
 
-// Function to load the next riddle
+// Function to move to the next riddle
 function nextRiddle() {
   currentRiddle++; // Move to the next riddle
   if (currentRiddle < riddles.length) {
-    // Load the next riddle's question
-    document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
+    // Save the current riddle to localStorage to keep track of progress
+    localStorage.setItem("currentRiddle", currentRiddle);
     
-    // Clear the previous feedback
-    document.getElementById('feedback').textContent = '';
-    document.getElementById('emoji').textContent = '';
-    document.getElementById("answer-input").value = ''; // Clear the input field
-
-    // Hide the "Next Riddle" button until the next riddle is answered
-    document.getElementById("next-riddle").style.display = "none";
-
-    // Enable the input and button for the next riddle
-    document.getElementById("answer-input").disabled = false;
-    document.querySelector("button").disabled = false;
+    // Reload the page to reflect the next riddle
+    window.location.reload();
   } else {
-    // If all riddles are answered, go to the Thank You page
+    // If all riddles are completed, go to the Thank You page
     window.location.href = "thankyou.html"; // Go to the Thank You page after all riddles are completed
   }
 }
 
 // Initialize the first riddle
 window.onload = function() {
-  document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
+  loadRiddle();
 };
