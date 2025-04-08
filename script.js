@@ -21,7 +21,6 @@ function loadRiddle() {
   }
 }
 
-// Function to check the answer
 function checkAnswer() {
   const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
   const correctAnswer = riddles[currentRiddle].answer.toLowerCase();
@@ -34,7 +33,9 @@ function checkAnswer() {
     emoji.textContent = "😊";  // Smiley face for correct answer
     feedback.classList.remove("incorrect");
     feedback.classList.add("correct");
-    document.getElementById("next-riddle").style.display = "inline-block";
+    
+    // Show the Finish Game button on the last riddle
+    document.getElementById("finish-game").style.display = "inline-block";
     
     // Optionally: Disable the input and submit button after answering
     document.getElementById("answer-input").disabled = true;
