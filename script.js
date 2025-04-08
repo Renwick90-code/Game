@@ -20,10 +20,11 @@ function checkAnswer() {
     emoji.textContent = "😊";  // Smiley face for correct answer
     feedback.classList.remove("incorrect");
     feedback.classList.add("correct");
-    document.getElementById("next-riddle").style.display = "inline-block";
+    document.getElementById("next-riddle").style.display = "inline-block"; // Show next riddle button
     
-    // After answering correctly, move to the next riddle or Thank You page
-    nextRiddle();
+    // Optionally: Disable the input and submit button after answering
+    document.getElementById("answer-input").disabled = true;
+    document.querySelector("button").disabled = true;
   } else {
     feedback.textContent = "Oops, try again!";
     emoji.textContent = "😞";  // Sad face for incorrect answer
@@ -32,47 +33,29 @@ function checkAnswer() {
   }
 }
 
-// Function to navigate to the next riddle or to the Thank You page
+// Function to load the next riddle
 function nextRiddle() {
-  currentRiddle++;
-  if (currentRiddle === 1) {
-    window.location.href = "riddle2.html"; // Go to Riddle 2
-  } else if (currentRiddle === 2) {
-    window.location.href = "riddle3.html"; // Go to Riddle 3
-  } else if (currentRiddle === 3) {
-    window.location.href = "thankyou.html"; // Go to Thank You page
-  }
-}
+  currentRiddle++; // Move to the next riddle
+  if (currentRiddle < riddles.length) {
+    // Load the next riddle's question
+    document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
+    
+    // Clear the previous feedback
+    document.getElementById('feedback').textContent = '';
+    document.getElementById('emoji').textContent = '';
+    document.getElementById("answer-input").value = ''; // Clear the input field
 
-function checkAnswer() {
-  const answer = document.getElementById("answer-input").value.trim().toLowerCase();
-  const feedback = document.getElementById("feedback");
-  const emoji = document.getElementById("emoji");
-  const nextButton = document.getElementById("next-riddle");
+    // Hide the "Next Riddle" button until the next riddle is answered
+    document.getElementById("next-riddle").style.display = "none";
 
-  // Correct answer for the riddle
-  const correctAnswer = "echo";
-
-  // Check if the user's answer is correct
-  if (answer === correctAnswer) {
-    feedback.textContent = "Correct!";
-    feedback.className = "correct";
-    emoji.textContent = "🎉"; // Emoji for correct answer
-    nextButton.style.display = "inline-block"; // Show next riddle button
+    // Enable the input and button for the next riddle
+    document.getElementById("answer-input").disabled = false;
+    document.querySelector("button").disabled = false;
   } else {
-    feedback.textContent = "Incorrect, try again!";
-    feedback.className = "incorrect";
-    emoji.textContent = "❌"; // Emoji for incorrect answer
+    // If all riddles are answered, go to the Thank You page
+    window.location.href = "thankyou.html"; // Go to the Thank You page after all riddles are completed
   }
 }
-
-function nextRiddle() {
-  // Redirect to the next riddle page (riddle3.html)
-  window.location.href = 'riddle3.html'; // This is the file you want to navigate to
-}
-
-
-
 
 // Initialize the first riddle
 window.onload = function() {
