@@ -44,6 +44,36 @@ function nextRiddle() {
   }
 }
 
+function checkAnswer() {
+  const answer = document.getElementById("answer-input").value.trim().toLowerCase();
+  const feedback = document.getElementById("feedback");
+  const emoji = document.getElementById("emoji");
+  const nextButton = document.getElementById("next-riddle");
+
+  // Correct answer for the riddle
+  const correctAnswer = "echo";
+
+  // Check if the user's answer is correct
+  if (answer === correctAnswer) {
+    feedback.textContent = "Correct!";
+    feedback.className = "correct";
+    emoji.textContent = "🎉"; // Emoji for correct answer
+    nextButton.style.display = "inline-block"; // Show next riddle button
+  } else {
+    feedback.textContent = "Incorrect, try again!";
+    feedback.className = "incorrect";
+    emoji.textContent = "❌"; // Emoji for incorrect answer
+  }
+}
+
+function nextRiddle() {
+  // Redirect to the next riddle page (riddle3.html)
+  window.location.href = 'riddle3.html'; // This is the file you want to navigate to
+}
+
+
+
+
 // Initialize the first riddle
 window.onload = function() {
   document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
