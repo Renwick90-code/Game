@@ -81,3 +81,29 @@ function finishGame() {
 window.onload = function() {
   loadRiddle();
 };
+
+// Get the current riddle index from localStorage or default to 0 (start from the first riddle)
+let currentRiddle = parseInt(localStorage.getItem("currentRiddle")) || 0;
+
+// Function to load the current riddle
+function loadRiddle() {
+  // Check if we're still within the bounds of the riddles array
+  if (currentRiddle < riddles.length) {
+    document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
+    document.querySelector("h1").textContent = "Riddle " + (currentRiddle + 1); // Dynamically set the riddle number
+    
+    // Hide the Next Riddle and Finish buttons initially
+    document.getElementById("next-riddle").style.display = "none";
+    document.getElementById("finish-game").style.display = "none";
+  } else {
+    // If no more riddles, redirect to the Thank You page
+    localStorage.removeItem("currentRiddle"); // Clear the saved riddle index
+    window.location.href = "thankyou.html"; // Go to Thank You page
+  }
+}
+
+// Initialize the riddle page when it loads
+window.onload = function() {
+  loadRiddle();
+};
+
