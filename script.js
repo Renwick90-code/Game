@@ -66,3 +66,8 @@ function nextRiddle() {
 window.onload = function() {
   loadRiddle();
 };
+
+// Function to finish the game and go to the Thank You page
+function finishGame() {
+  window.location.href = 'thankyou.html';  // Redirect to the Thank You page
+}
