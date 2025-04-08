@@ -10,6 +10,9 @@ let currentRiddle = parseInt(localStorage.getItem("currentRiddle")) || 0;
 // Function to load the current riddle
 function loadRiddle() {
   document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
+  
+  // Dynamically set the heading based on the current riddle
+  document.querySelector("h1").textContent = "Riddle " + (currentRiddle + 1);  // Adjusting for 1-based index (Riddle 1, Riddle 2, etc.)
 }
 
 // Function to check the answer
