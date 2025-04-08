@@ -13,19 +13,19 @@ function loadRiddle() {
   // Check if we're still within the bounds of the riddles array
   if (currentRiddle < riddles.length) {
     document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
-    // Dynamically set the heading based on the current riddle
-    document.querySelector("h1").textContent = "Riddle " + (currentRiddle + 1);  // Adjusting for 1-based index (Riddle 1, Riddle 2, etc.)
+    document.querySelector("h1").textContent = "Riddle " + (currentRiddle + 1); // Dynamically set the riddle number
     
-    // Hide the next button initially
+    // Hide the Next Riddle and Finish buttons initially
     document.getElementById("next-riddle").style.display = "none";
-    document.getElementById("finish-game").style.display = "none";  // Hide the Finish Game button for Riddles 1 and 2
+    document.getElementById("finish-game").style.display = "none";
   } else {
     // If no more riddles, redirect to the Thank You page
-    localStorage.removeItem("currentRiddle"); // Clear the saved riddle
+    localStorage.removeItem("currentRiddle"); // Clear the saved riddle index
     window.location.href = "thankyou.html"; // Go to Thank You page
   }
 }
 
+// Function to check the user's answer
 function checkAnswer() {
   const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
   const correctAnswer = riddles[currentRiddle].answer.toLowerCase();
@@ -39,11 +39,11 @@ function checkAnswer() {
     feedback.classList.remove("incorrect");
     feedback.classList.add("correct");
     
-    // Show the appropriate button
+    // Show the appropriate button based on the riddle
     if (currentRiddle < riddles.length - 1) {
-      document.getElementById("next-riddle").style.display = "inline-block";  // Show the Next Riddle button
+      document.getElementById("next-riddle").style.display = "inline-block"; // Show Next Riddle button
     } else {
-      document.getElementById("finish-game").style.display = "inline-block";  // Show the Finish Game button on the last riddle
+      document.getElementById("finish-game").style.display = "inline-block"; // Show Finish Game button for last riddle
     }
     
     // Optionally: Disable the input and submit button after answering
@@ -67,7 +67,7 @@ function nextRiddle() {
     window.location.href = `riddle${currentRiddle + 1}.html`;  // For example: riddle2.html, riddle3.html
   } else {
     // If all riddles are completed, go to the Thank You page
-    localStorage.removeItem("currentRiddle"); // Optional: Clear the stored riddle number
+    localStorage.removeItem("currentRiddle"); // Clear the saved riddle number
     window.location.href = "thankyou.html"; // Go to Thank You page
   }
 }
@@ -77,7 +77,11 @@ function finishGame() {
   window.location.href = 'thankyou.html';  // Redirect to the Thank You page
 }
 
-// Initialize the first riddle
+// Initialize the riddle page when it loads
 window.onload = function() {
   loadRiddle();
 };
+
+console.log("Current Riddle:", currentRiddle);
+console.log("Question:", riddles[currentRiddle].question);
+
