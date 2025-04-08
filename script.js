@@ -5,6 +5,7 @@ const riddles = [
   { question: "The more of this there is, the less you see. What is it?", answer: "darkness" },
 ];
 
+// Get the current riddle index from localStorage or default to 0 (start from the first riddle)
 let currentRiddle = parseInt(localStorage.getItem("currentRiddle")) || 0;
 
 // Function to load the current riddle
@@ -14,6 +15,10 @@ function loadRiddle() {
     document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
     // Dynamically set the heading based on the current riddle
     document.querySelector("h1").textContent = "Riddle " + (currentRiddle + 1);  // Adjusting for 1-based index (Riddle 1, Riddle 2, etc.)
+    
+    // Hide the next button initially
+    document.getElementById("next-riddle").style.display = "none";
+    document.getElementById("finish-game").style.display = "none";  // Hide the Finish Game button for Riddles 1 and 2
   } else {
     // If no more riddles, redirect to the Thank You page
     localStorage.removeItem("currentRiddle"); // Clear the saved riddle
@@ -34,8 +39,12 @@ function checkAnswer() {
     feedback.classList.remove("incorrect");
     feedback.classList.add("correct");
     
-    // Show the Finish Game button on the last riddle
-    document.getElementById("finish-game").style.display = "inline-block";
+    // Show the appropriate button
+    if (currentRiddle < riddles.length - 1) {
+      document.getElementById("next-riddle").style.display = "inline-block";  // Show the Next Riddle button
+    } else {
+      document.getElementById("finish-game").style.display = "inline-block";  // Show the Finish Game button on the last riddle
+    }
     
     // Optionally: Disable the input and submit button after answering
     document.getElementById("answer-input").disabled = true;
@@ -63,12 +72,12 @@ function nextRiddle() {
   }
 }
 
-// Initialize the first riddle
-window.onload = function() {
-  loadRiddle();
-};
-
 // Function to finish the game and go to the Thank You page
 function finishGame() {
   window.location.href = 'thankyou.html';  // Redirect to the Thank You page
 }
+
+// Initialize the first riddle
+window.onload = function() {
+  loadRiddle();
+};
