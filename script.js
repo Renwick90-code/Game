@@ -10,11 +10,13 @@ let currentRiddle = parseInt(localStorage.getItem("currentRiddle")) || 0;
 
 // Function to load the current riddle
 function loadRiddle() {
+  console.log("Current Riddle Index:", currentRiddle);  // Debugging line to check the current riddle index
+  
   // Check if we're still within the bounds of the riddles array
   if (currentRiddle < riddles.length) {
     document.getElementById("riddle-text").textContent = riddles[currentRiddle].question;
     document.querySelector("h1").textContent = "Riddle " + (currentRiddle + 1); // Dynamically set the riddle number
-    
+
     // Hide the Next Riddle and Finish buttons initially
     document.getElementById("next-riddle").style.display = "none";
     document.getElementById("finish-game").style.display = "none";
@@ -38,14 +40,14 @@ function checkAnswer() {
     emoji.textContent = "😊";  // Smiley face for correct answer
     feedback.classList.remove("incorrect");
     feedback.classList.add("correct");
-    
+
     // Show the appropriate button based on the riddle
     if (currentRiddle < riddles.length - 1) {
       document.getElementById("next-riddle").style.display = "inline-block"; // Show Next Riddle button
     } else {
       document.getElementById("finish-game").style.display = "inline-block"; // Show Finish Game button for last riddle
     }
-    
+
     // Optionally: Disable the input and submit button after answering
     document.getElementById("answer-input").disabled = true;
     document.querySelector("button").disabled = true;
