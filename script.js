@@ -1,5 +1,3 @@
-// This script will be used to handle the logic for checking answers on each riddle page.
-
 let correctAnswer = ""; // To store the correct answer for each riddle
 
 // This function sets the correct answer for the current riddle
@@ -64,10 +62,9 @@ window.onload = function () {
   } else if (window.location.pathname.includes("riddle3.html")) {
     setCorrectAnswer("darkness"); // Set the answer for riddle 3
   }
-}
 
-// Initialize the hint functionality
-  initializeHint();
+  // Initialize the hint functionality
+  initializeHint(); // This will initialize the hint button on page load
 };
 
 // Hint functionality (New code)
@@ -89,5 +86,4 @@ function showHint() {
 
   // Toggle visibility of the hint text
   hintText.style.display = hintText.style.display === 'none' ? 'block' : 'none';  // Toggle visibility
-};
-
+}
