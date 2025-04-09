@@ -55,26 +55,6 @@
     function finishGame() {
       window.location.href = 'thankyou.html'; // Finish the game
     }
-
-    // This function shows the hint (first letter of the correct answer)
-    function showHint() {
-      const hintText = document.getElementById('hint-text');
-      const hintLetter = document.getElementById('hint-letter');
-      
-      // Set the hint to be the first letter of the answer
-      hintLetter.textContent = correctAnswer.charAt(0).toUpperCase(); // First letter, capitalized
-
-      // Toggle visibility of the hint text
-      hintText.style.display = hintText.style.display === 'none' ? 'block' : 'none';  // Toggle visibility
-    }
-
-    // Initialize the hint button functionality
-    window.onload = function () {
-      // Add event listener to the hint button
-      const hintButton = document.getElementById("hint-button");
-      if (hintButton) {
-        hintButton.addEventListener('click', showHint); // Show hint when clicked
-      }
     }
   </script>
 </body>
