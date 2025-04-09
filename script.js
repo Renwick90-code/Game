@@ -1,67 +1,67 @@
-// THIS SCRIPT WILL BE USED TO HANDLE THE LOGIC FOR CHECKING ANSWERS ON EACH RIDDLE PAGE.
+// This script will be used to handle the logic for checking answers on each riddle page.
 
-LET CORRECTANSWER = ""; // TO STORE THE CORRECT ANSWER FOR EACH RIDDLE
+let correctAnswer = ""; // To store the correct answer for each riddle
 
-// THIS FUNCTION SETS THE CORRECT ANSWER FOR THE CURRENT RIDDLE
-FUNCTION SETCORRECTANSWER(ANSWER) {
-  CORRECTANSWER = ANSWER;
+// This function sets the correct answer for the current riddle
+function setCorrectAnswer(answer) {
+  correctAnswer = answer;
 }
 
-// THIS FUNCTION CHECKS THE USER'S ANSWER
-FUNCTION CHECKANSWER() {
-  CONST USERANSWER = DOCUMENT.GETELEMENTBYID("ANSWER-INPUT").VALUE.TOLOWERCASE().TRIM();
-  CONST FEEDBACK = DOCUMENT.GETELEMENTBYID('FEEDBACK');
-  CONST EMOJI = DOCUMENT.GETELEMENTBYID('EMOJI');
+// This function checks the user's answer
+function checkAnswer() {
+  const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
+  const feedback = document.getElementById('feedback');
+  const emoji = document.getElementById('emoji');
 
-  IF (USERANSWER === CORRECTANSWER) {
-    FEEDBACK.TEXTCONTENT = "CORRECT! WELL DONE!";
-    EMOJI.TEXTCONTENT = "😊"; // SMILEY FACE FOR CORRECT ANSWER
-    FEEDBACK.CLASSLIST.REMOVE("INCORRECT");
-    FEEDBACK.CLASSLIST.ADD("CORRECT");
+  if (userAnswer === correctAnswer) {
+    feedback.textContent = "Correct! Well done!";
+    emoji.textContent = "😊"; // Smiley face for correct answer
+    feedback.classList.remove("incorrect");
+    feedback.classList.add("correct");
 
-    // DISPLAY THE NEXT BUTTON OR FINISH BUTTON, DEPENDING ON THE RIDDLE
-    CONST NEXTBUTTON = DOCUMENT.GETELEMENTBYID("NEXT-RIDDLE");
-    CONST FINISHBUTTON = DOCUMENT.GETELEMENTBYID("FINISH-GAME");
+    // Display the Next button or Finish button, depending on the riddle
+    const nextButton = document.getElementById("next-riddle");
+    const finishButton = document.getElementById("finish-game");
 
-    IF (NEXTBUTTON) {
-      NEXTBUTTON.STYLE.DISPLAY = "INLINE-BLOCK"; // SHOW NEXT BUTTON FOR RIDDLE 1 AND 2
+    if (nextButton) {
+      nextButton.style.display = "inline-block"; // Show Next button for riddle 1 and 2
     }
-    IF (FINISHBUTTON) {
-      FINISHBUTTON.STYLE.DISPLAY = "INLINE-BLOCK"; // SHOW FINISH BUTTON FOR THE LAST RIDDLE
+    if (finishButton) {
+      finishButton.style.display = "inline-block"; // Show Finish button for the last riddle
     }
 
-    // DISABLE THE INPUT AND SUBMIT BUTTON AFTER ANSWERING
-    DOCUMENT.GETELEMENTBYID("ANSWER-INPUT").DISABLED = TRUE;
-    DOCUMENT.QUERYSELECTOR("BUTTON").DISABLED = TRUE;
-  } ELSE {
-    FEEDBACK.TEXTCONTENT = "OOPS, TRY AGAIN!";
-    EMOJI.TEXTCONTENT = "😞"; // SAD FACE FOR INCORRECT ANSWER
-    FEEDBACK.CLASSLIST.REMOVE("CORRECT");
-    FEEDBACK.CLASSLIST.ADD("INCORRECT");
+    // Disable the input and submit button after answering
+    document.getElementById("answer-input").disabled = true;
+    document.querySelector("button").disabled = true;
+  } else {
+    feedback.textContent = "Oops, try again!";
+    emoji.textContent = "😞"; // Sad face for incorrect answer
+    feedback.classList.remove("correct");
+    feedback.classList.add("incorrect");
   }
 }
 
-// THIS FUNCTION MOVES THE USER TO THE NEXT RIDDLE PAGE
-FUNCTION NEXTRIDDLE() {
-  IF (WINDOW.LOCATION.PATHNAME.INCLUDES("RIDDLE1.HTML")) {
-    WINDOW.LOCATION.HREF = 'RIDDLE2.HTML'; // GO TO RIDDLE 2
-  } ELSE IF (WINDOW.LOCATION.PATHNAME.INCLUDES("RIDDLE2.HTML")) {
-    WINDOW.LOCATION.HREF = 'RIDDLE3.HTML'; // GO TO RIDDLE 3
+// This function moves the user to the next riddle page
+function nextRiddle() {
+  if (window.location.pathname.includes("riddle1.html")) {
+    window.location.href = 'riddle2.html'; // Go to riddle 2
+  } else if (window.location.pathname.includes("riddle2.html")) {
+    window.location.href = 'riddle3.html'; // Go to riddle 3
   }
 }
 
-// THIS FUNCTION FINISHES THE GAME AND REDIRECTS TO THE THANK YOU PAGE
-FUNCTION FINISHGAME() {
-  WINDOW.LOCATION.HREF = 'THANKYOU.HTML'; // GO TO THE THANK YOU PAGE
+// This function finishes the game and redirects to the Thank You page
+function finishGame() {
+  window.location.href = 'thankyou.html'; // Go to the Thank You page
 }
 
-// THIS FUNCTION WILL BE CALLED WHEN THE PAGE LOADS TO SET THE CORRECT ANSWER BASED ON THE RIDDLE PAGE
-WINDOW.ONLOAD = FUNCTION () {
-  IF (WINDOW.LOCATION.PATHNAME.INCLUDES("RIDDLE1.HTML")) {
-    SETCORRECTANSWER("PIANO"); // SET THE ANSWER FOR RIDDLE 1
-  } ELSE IF (WINDOW.LOCATION.PATHNAME.INCLUDES("RIDDLE2.HTML")) {
-    SETCORRECTANSWER("ECHO"); // SET THE ANSWER FOR RIDDLE 2
-  } ELSE IF (WINDOW.LOCATION.PATHNAME.INCLUDES("RIDDLE3.HTML")) {
-    SETCORRECTANSWER("DARKNESS"); // SET THE ANSWER FOR RIDDLE 3
+// This function will be called when the page loads to set the correct answer based on the riddle page
+window.onload = function () {
+  if (window.location.pathname.includes("riddle1.html")) {
+    setCorrectAnswer("piano"); // Set the answer for riddle 1
+  } else if (window.location.pathname.includes("riddle2.html")) {
+    setCorrectAnswer("echo"); // Set the answer for riddle 2
+  } else if (window.location.pathname.includes("riddle3.html")) {
+    setCorrectAnswer("darkness"); // Set the answer for riddle 3
   }
 };
