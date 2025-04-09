@@ -64,4 +64,30 @@ window.onload = function () {
   } else if (window.location.pathname.includes("riddle3.html")) {
     setCorrectAnswer("darkness"); // Set the answer for riddle 3
   }
+}
+
+// Initialize the hint functionality
+  initializeHint();
 };
+
+// Hint functionality (New code)
+function initializeHint() {
+  // Add event listener to the hint button
+  const hintButton = document.getElementById("hint-button");
+  if (hintButton) {
+    hintButton.addEventListener('click', showHint);
+  }
+}
+
+// Show the hint (first letter of the answer)
+function showHint() {
+  const hintText = document.getElementById('hint-text');
+  const hintLetter = document.getElementById('hint-letter');
+  
+  // Set the hint to be the first letter of the current riddle's answer
+  hintLetter.textContent = correctAnswer.charAt(0).toUpperCase(); // First letter, capitalized
+
+  // Toggle visibility of the hint text
+  hintText.style.display = hintText.style.display === 'none' ? 'block' : 'none';  // Toggle visibility
+};
+
