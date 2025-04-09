@@ -94,7 +94,7 @@ a:hover {
 /* Styling the Thank You Image */
 .thank-you-image {
   width: 100%;
-  max-width: 400px; /* Limit the max width of the image */
+  max-width: 300px; /* Limit the max width of the image */
   height: auto;
   margin-top: 20px;
   margin-bottom: 20px;
