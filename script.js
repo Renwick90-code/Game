@@ -41,11 +41,7 @@ function checkAnswer() {
 
 // This function moves the user to the next riddle page
 function nextRiddle() {
-  if (window.location.pathname.includes("riddle1.html")) {
-    window.location.href = 'riddle2.html'; // Go to riddle 2
-  } else if (window.location.pathname.includes("riddle2.html")) {
-    window.location.href = 'riddle3.html'; // Go to riddle 3
-  }
+  window.location.href = 'riddle2.html'; // Go to riddle 2
 }
 
 // This function finishes the game and redirects to the Thank You page
@@ -62,28 +58,4 @@ window.onload = function () {
   } else if (window.location.pathname.includes("riddle3.html")) {
     setCorrectAnswer("darkness"); // Set the answer for riddle 3
   }
-
-  // Initialize the hint functionality
-  initializeHint(); // This will initialize the hint button on page load
 };
-
-// Hint functionality (New code)
-function initializeHint() {
-  // Add event listener to the hint button
-  const hintButton = document.getElementById("hint-button");
-  if (hintButton) {
-    hintButton.addEventListener('click', showHint);
-  }
-}
-
-// Show the hint (first letter of the answer)
-function showHint() {
-  const hintText = document.getElementById('hint-text');
-  const hintLetter = document.getElementById('hint-letter');
-  
-  // Set the hint to be the first letter of the current riddle's answer
-  hintLetter.textContent = correctAnswer.charAt(0).toUpperCase(); // First letter, capitalized
-
-  // Toggle visibility of the hint text
-  hintText.style.display = hintText.style.display === 'none' ? 'block' : 'none';  // Toggle visibility
-}
