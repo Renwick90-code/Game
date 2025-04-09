@@ -91,6 +91,19 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Styling the Thank You Image */
+.thank-you-image {
+  width: 100%;
+  max-width: 400px; /* Limit the max width of the image */
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px; /* Rounded corners for the image */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Feedback Message Styling */
 #feedback {
   font-size: 18px;
