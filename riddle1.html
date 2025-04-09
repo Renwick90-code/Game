@@ -18,12 +18,11 @@
     </div>
     <button id="next-riddle" onclick="nextRiddle()" style="display: none;">Next Riddle</button>
     <button id="finish-game" onclick="finishGame()" style="display: none;">Finish Game</button>
+  </div>
 
-  <!-- JavaScript goes here -->
   <script>
     const correctAnswer = "piano"; // Correct answer for Riddle 1
 
-    // This function checks the user's answer
     function checkAnswer() {
       const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
       const feedback = document.getElementById('feedback');
@@ -46,15 +45,12 @@
       }
     }
 
-    // This function takes the user to the next riddle page
     function nextRiddle() {
       window.location.href = 'riddle2.html'; // Move to next riddle
     }
 
-    // This function finishes the game and redirects to the Thank You page
     function finishGame() {
       window.location.href = 'thankyou.html'; // Finish the game
-    }
     }
   </script>
 </body>
