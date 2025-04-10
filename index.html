@@ -10,13 +10,17 @@
   <div class="game-container">
     <img src="riddler_2_art_station.jpg" alt="Welcome Riddle Image" class="welcome-image">
     <h1>Welcome to the Riddle Game!</h1>
+
+    <!-- Start Game Button -->
     <button onclick="startGame()">Start Game</button>
-    <button onclick="window.location.href='more_info.html'">More Information</button> <!-- Optional More Info page -->
+
+    <!-- More Information Button -->
+    <a href="more-info.html" class="button-link">More Information</a>
   </div>
 
   <script>
     function startGame() {
-      window.location.href = 'riddle1.html'; // Navigate to Riddle 1 when "Start Game" is clicked
+      window.location.href = 'riddle1.html'; // Go to the first riddle
     }
   </script>
 </body>
