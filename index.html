@@ -3,26 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Riddle Game</title>
+  <title>Riddle Game - Riddle 1</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="game-container">
     <img src="riddler.jpg" alt="Welcome Riddle Image" class="welcome-image">
-    <h1>Welcome to the Riddle Game!</h1>
+    <h1>What has keys but can't open locks?</h1> <!-- Example Riddle -->
+    
+    <input type="text" id="answer-input" placeholder="Enter your answer">
+    <button onclick="checkAnswer()">Submit Answer</button>
 
-    <!-- Start Game Button -->
-    <button onclick="startGame()">Start Game</button>
+    <p id="feedback"></p>
+    <span id="emoji"></span>
 
-    <!-- More Information Button -->
-    <a href="more-info.html" class="button-link">More Information</a> <!-- This links to the more-info.html -->
+    <!-- Buttons for Next Riddle or Finish -->
+    <button id="next-riddle" onclick="nextRiddle()" style="display: none;">Next Riddle</button>
+    <button id="finish-game" onclick="finishGame()" style="display: none;">Finish Game</button>
+
+    <a href="more-info.html" class="button-link">More Information</a> <!-- Link to more-info.html -->
   </div>
 
-  <script>
-    function startGame() {
-      window.location.href = 'riddle1.html'; // Go to the first riddle
-    }
-  </script>
+  <script src="game.js"></script> <!-- Link to your JS file -->
 </body>
 </html>
-
