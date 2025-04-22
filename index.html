@@ -7,6 +7,25 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Puzzle Games</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#games">Games</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="burger" id="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Game Content -->
   <div class="game-container">
     <img src="riddler.jpg" alt="Welcome Riddle Image" class="welcome-image">
     <h1>Welcome to the Riddle Game!</h1>
@@ -15,13 +34,22 @@
     <button onclick="startGame()">Start Game</button>
 
     <!-- More Information Button -->
-    <a href="more-info.html" class="button-link">More Information</a> <!-- This links to the more-info.html -->
+    <a href="more-info.html" class="button-link">More Information</a>
   </div>
 
+  <!-- JavaScript -->
   <script>
     function startGame() {
-      window.location.href = 'riddle1.html'; // Go to the first riddle
+      window.location.href = 'riddle1.html';
     }
+
+    // Responsive Navbar Toggle
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
   </script>
 </body>
 </html>
